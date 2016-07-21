@@ -33,6 +33,16 @@ angular.module('app')
             }
         })
 
+        .state('admin-home.faculty', {
+            url: '/faculty',
+            views: {
+                'content': {
+                    templateUrl: 'app/admin/faculty/faculty.html',
+                    controller: 'facultyCtrl as faculty'
+                }
+            }
+        })
+
         // .state('StatisticSystem', {
         //     url: '/StatisticSystem',
         //     templateUrl: 'src/app/admin/StatisticSystem.html'

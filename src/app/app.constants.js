@@ -20,7 +20,14 @@
             countSpecialities: 'http://dtapi.local/speciality/countRecords',
             addSpeciality: 'http://dtapi.local/speciality/insertData',
             editSpeciality: 'http://dtapi.local/speciality/update/',
-            delSpeciality: 'http://dtapi.local/speciality/del/'
+            delSpeciality: 'http://dtapi.local/speciality/del/',
+
+            getFaculties: 'http://dtapi.local/faculty/getRecords',
+            getRangeOfFacultiesURL: 'http://dtapi.local/faculty/getRecordsRange/10/9',
+            countFaculties: 'http://dtapi.local/faculty/countRecords',
+            addFaculty: 'http://dtapi.local/faculty/insertData',
+            editFaculty: 'http://dtapi.local/faculty/update/',
+            delFaculty: 'http://dtapi.local/faculty/del/'
         })
 
     ;
