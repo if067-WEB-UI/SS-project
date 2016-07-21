@@ -6,3 +6,4 @@ build/
 .sass-cache
 styles.css.map
 *.log
+*.map

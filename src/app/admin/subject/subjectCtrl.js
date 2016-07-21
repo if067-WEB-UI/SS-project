@@ -3,9 +3,9 @@
 
     angular.module('app')
         .controller('SubjectCtrl', subjectController);
-        subjectController.$inject = ['subjectService'];
+        subjectController.$inject = ['subjectService', '$timeout'];
 
-        function subjectController(subjectService) {
+        function subjectController(subjectService, $timeout) {
             var self = this;
             self.list = {};
             self.subject = {subject_name: "", subject_description: ""};
@@ -17,6 +17,7 @@
             self.showErrorMessage = false;
             self.message = "Loading...";
             self.addSubject = addSubject;
+            self.deleteSubject = deleteSubject;
 
             activate();
 
@@ -31,6 +32,11 @@
             function addSubject() {
                 subjectService.addSubject(self.subject)
                     .then(addSubjectComplete, rejected)
+            }
+
+            function deleteSubject(subject_id) {
+                subjectService.deleteSubject(subject_id)
+                    .then(deleteSubjectComplete, rejected);
             }
 
             function getRecordsRangeComplete(response) {
@@ -52,9 +58,14 @@
                 }
             }
 
+            function deleteSubjectComplete(response) {
+                if(response.data.response == "ok") {
+                   activate();
+                }
+            }
+
             function pageChanged() {
                 var begin = ((self.currentPage - 1) * self.subjectsPerPage);
-                console.log("begin: " + begin);
                 subjectService.getRecordsRange(self.subjectsPerPage, begin).then(getRecordsRangeComplete);
             }
 

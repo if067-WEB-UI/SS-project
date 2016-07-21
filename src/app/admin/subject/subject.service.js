@@ -3,14 +3,15 @@
 
     angular.module('app')
         .factory('subjectService', subjectService);
-        subjectService.$inject = ['$http', 'appConstants', '$state'];
+        subjectService.$inject = ['$http', 'appConstants'];
 
         function subjectService ($http, appConstants) {
             return {
                 getSubjects: getSubjects,
                 countSubjects: countSubjects,
                 getRecordsRange: getRecordsRange,
-                addSubject: addSubject
+                addSubject: addSubject,
+                deleteSubject: deleteSubject
             };
 
             function getSubjects() {
@@ -27,6 +28,10 @@
             }
             function addSubject(data) {
                 return $http.post(appConstants.addSubject, data)
+                    .then(fulfilled, rejected);
+            }
+            function deleteSubject(subject_id) {
+                return $http.delete(appConstants.delSubject + subject_id)
                     .then(fulfilled, rejected);
             }
 
