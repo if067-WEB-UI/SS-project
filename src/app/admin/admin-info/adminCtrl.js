@@ -10,7 +10,7 @@
     function AdminEditController(adminService,$state) {
         var self = this;
         self.edit = edit;
-        self.showAdmins = showAdmins;
+        self.hide = hide;
         self.update = update;
         self.remove = remove;
         self.list = [];
@@ -23,13 +23,12 @@
         activate();
 
         function activate() {
-            return adminService.getAdmins().then(function (data) {
+             adminService.getAdmins().then(function (data) {
                 self.list = data;
-                return self.list;
             });
         }
 
-        function showAdmins() {
+        function hide() {
             self.show = false;
         }
 
@@ -51,13 +50,15 @@
                 }
             }
             adminService.editAdmin(self.currentObj);
-            activate();
-            $state.go("admin");
+            &timeout(activate(),900);
+            $state.go('admin-home.admin');
+            hide();
         }
 
         function remove(id) {
             adminService.deleteAdmin(id);
             activate();
+            $state.go('admin-home.admin');
         }
     }
 })();
