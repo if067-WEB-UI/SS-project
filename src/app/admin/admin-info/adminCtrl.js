@@ -25,6 +25,8 @@
         function activate() {
             adminService.getAdmins().then(function (data) {
                 self.list = data;
+                self.password = "";
+                self.password1 = "";
             });
         }
 
