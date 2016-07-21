@@ -41,7 +41,6 @@ function initializeJS() {
     });
 
     jQuery('.toggle-nav').click(function () {
-        console.log(1);
          jQuery("#container").toggleClass("sidebar-closed");
     });
 

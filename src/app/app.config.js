@@ -13,6 +13,16 @@ angular.module('app')
             templateUrl: 'app/admin/admin-home.html'
         })
 
+        .state('admin-home.subject', {
+            url: '/subject',
+            views: {
+                'content': {
+                    templateUrl: 'app/admin/subject/subject.html',
+                    controller: 'SubjectCtrl as subjects'
+                }
+            }
+        })
+
         // .state('StatisticSystem', {
         //     url: '/StatisticSystem',
         //     templateUrl: 'src/app/admin/StatisticSystem.html'

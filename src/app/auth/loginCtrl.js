@@ -8,6 +8,7 @@
             var self = this;
             self.user = {username: "", password: ""};
             self.toEnter = toEnter;
+            self.toExit = toExit;
 
             function toEnter() {
                 loginService.enterLogin(self.user).then(fullfilled);
@@ -19,6 +20,10 @@
                 } else if(response.data.response == "ok" && response.data.roles[1] == 'student') {
                     $state.go('student');
                 }
+            }
+
+            function toExit () {
+                $state.go('login');
             }
         }
 })();
