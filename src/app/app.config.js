@@ -43,6 +43,15 @@ angular.module('app')
             }
         })
 
+        .state('admin-home.admin', {
+            url: '/edit-admin',
+            views: {
+                'content': {
+                    templateUrl: 'app/admin/admin-info/admin.html',
+                    controller: 'AdminEditController as admins'
+                }
+            }
+        })
         // .state('StatisticSystem', {
         //     url: '/StatisticSystem',
         //     templateUrl: 'src/app/admin/StatisticSystem.html'
