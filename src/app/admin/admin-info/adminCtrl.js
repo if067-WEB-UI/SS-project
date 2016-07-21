@@ -26,13 +26,10 @@
             return adminService.getAdmins().then(function (data) {
                 self.list = data;
                 return self.list;
-                self.password = "";
-                self.password1 = "";
             });
         }
 
         function showAdmins() {
-            $state.go()
             self.show = false;
         }
 
@@ -42,9 +39,11 @@
         }
 
         function update(){
+            console.log("pasword="+self.password);
+            console.log("pasword1="+self.password1);
             if (self.password != ""){
                 if (self.password == self.password1){
-                    currentObj.password = self.password;
+                    self.currentObj.password = self.password;
                 }
                 else {
                     alert("Паролі не співпадають");

@@ -22,7 +22,7 @@
                             <td>{{admin.id}}</td>
                             <td>{{admin.username}}</td>
                             <td>{{admin.email}}</td>
-                            <td><button ng-click = "admins.edit(admin.id)" >Редагувати</button></td>
+                            <td><button ng-click = "admins.edit(admin)" >Редагувати</button></td>
                             <td><button ng-click = "admins.remove(admin.id)" >Видалити</button></td>
                             <!--<td><button ng-click = "admins.remove(admin.id)" colspan="2">Видалити</button></td>-->
                         </tr>
@@ -34,7 +34,8 @@
 
             </div>
         </div>
-        <div class="col-xs-12 edit-admin-wrapper">
+
+        <div class="col-xs-12 edit-admin-wrapper" ng-if = "admins.show">
             <form>
                 <table>
                     <thead>
@@ -64,14 +65,14 @@
                     <tr>
                         <td colspan="3">Підтвердження пароля</td>
                         <td colspan="3">
-                            <input type="text" class="registr-new-test-inpts" name="name-of-test ng-model="admins.password1></td>
+                            <input type="text" class="registr-new-test-inpts" name="name-of-test" ng-model="admins.password1"></td>
                         </td>
                     </tr>
 
                     <tr>
                         <td colspan="3"><button class="add-new-test-registr-btn">Скасувати</button></td>
                         <td colspan="3">
-                            <button class="add-new-test-registr-btn">Зареєструвати</button>
+                            <button class="add-new-test-registr-btn" ng-click="admins.update()">Зареєструвати</button>
                         </td>
                     </tr>
 
