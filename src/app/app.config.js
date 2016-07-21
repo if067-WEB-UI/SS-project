@@ -23,6 +23,16 @@ angular.module('app')
             }
         })
 
+        .state('admin-home.speciality', {
+            url: '/speciality',
+            views: {
+                'content': {
+                    templateUrl: 'app/admin/speciality/speciality.html',
+                    controller: 'specialityCtrl as speciality'
+                }
+            }
+        })
+
         // .state('StatisticSystem', {
         //     url: '/StatisticSystem',
         //     templateUrl: 'src/app/admin/StatisticSystem.html'

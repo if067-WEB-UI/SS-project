@@ -13,7 +13,14 @@
             countSubjects: 'http://dtapi.local/subject/countRecords',
             addSubject: 'http://dtapi.local/subject/insertData',
             editSubject: 'http://dtapi.local/subject/update/',
-            delSubject: 'http://dtapi.local/subject/del/'
+            delSubject: 'http://dtapi.local/subject/del/',
+
+            getSpecialities: 'http://dtapi.local/speciality/getRecords',
+            getRangeOfSpecialities: 'http://dtapi.local/speciality/getRecordsRange',
+            countSpecialities: 'http://dtapi.local/speciality/countRecords',
+            addSpeciality: 'http://dtapi.local/speciality/insertData',
+            editSpeciality: 'http://dtapi.local/speciality/update/',
+            delSpeciality: 'http://dtapi.local/speciality/del/'
         })
 
     ;
