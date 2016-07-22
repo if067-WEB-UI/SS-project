@@ -1,36 +1,44 @@
-       <section id="main-content">
-          <section class="wrapper">
-              <div class="row">
-                  <div class="col-xs-12">
-                          <table>
-            <thead>
-              <tr>
-                <th colspan="4">Предмети</th>
-                <th class="addGroup" data-target="#addGroup" data-toggle="modal">Додати новий предмет</th>
-              </tr>
-              <tr>
-                <th>№ п/п</th>
-                <th>Назва предмету</th>
-                <th colspan="3">Управління</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="subject in subjects.list">
-                <td>{{$index + (((subjects.currentPage - 1)*10 + 1) || 1)}}</td>
-                <td>{{::subject.subject_name}}</td>
-                <td>{{::subject.subject_description}}</td>
-                <td>Тести</td>
-                <td><a>Розклад</a></td>
-              </tr>
-            </tbody>
-          </table>
-                      <uib-pagination
-                              total-items="subjects.totalSubjects.numberOfRecords"
-                              ng-model="subjects.currentPage"
-                              ng-change="subjects.pageChanged()"
-                              previous-text="&lsaquo;"
-                              next-text="&rsaquo;">
-                      </uib-pagination>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-xs-12">
+              <table class="subject-list">
+                <thead>
+                  <tr>
+                    <th colspan="5">Предмети</th>
+                    <th class="addGroup" data-target="#addGroup" data-toggle="modal">
+                        <a ui-sref="admin-home.newSubject">Додати новий предмет</a>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>№ п/п</th>
+                    <th>Назва предмету</th>
+                    <th>Опис предмету</th>
+                    <th colspan="3">Управління</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="subject in subjects.list">
+                    <td>{{$index + (subjects.currentPage - 1)*10 + 1}}</td>
+                    <td>{{::subject.subject_name}}</td>
+                    <td>{{::subject.subject_description}}</td>
+                    <td><a>Редагувати</a></td>
+                    <td><a ng-click="subjects.deleteSubject(subject.subject_id)">Видалити</a></td>
+                    <td><a>Тести</a></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="subject-pagination pull-right">
+                  <uib-pagination
+                          total-items="subjects.totalSubjects.numberOfRecords"
+                          ng-model="subjects.currentPage"
+                          ng-change="subjects.pageChanged()"
+                          previous-text="&lsaquo;"
+                          next-text="&rsaquo;">
+                  </uib-pagination>
+              </div>
+
 
                       <!-- Modal -->
   <!--<div class="modal fade" id="addGroup" role="dialog">-->

@@ -23,6 +23,16 @@ angular.module('app')
             }
         })
 
+        .state('admin-home.newSubject', {
+            url: '/newSubject',
+            views: {
+                'content': {
+                    templateUrl: 'app/admin/subject/subject-add.html',
+                    controller: 'SubjectCtrl as subjects'
+                }
+            }
+        })
+
         .state('admin-home.speciality', {
             url: '/speciality',
             views: {
@@ -43,6 +53,15 @@ angular.module('app')
             }
         })
 
+        .state('admin-home.admin', {
+            url: '/edit-admin',
+            views: {
+                'content': {
+                    templateUrl: 'app/admin/admin-info/admin.html',
+                    controller: 'AdminEditController as admins'
+                }
+            }
+        })
         // .state('StatisticSystem', {
         //     url: '/StatisticSystem',
         //     templateUrl: 'src/app/admin/StatisticSystem.html'
