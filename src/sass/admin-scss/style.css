@@ -33,7 +33,7 @@ a, a:hover, a:focus {
     outline: 0;
 }
 input:focus, textarea:focus { outline: none; }
-table tr th { color: #688a7e;}
+table tr th { color: #ffffff;}
 *:focus {outline: none;}
 ::selection {
     background: #688a7e;
@@ -361,6 +361,7 @@ td, th {
 }
 td{
 	background-color: #1a2732;
+    color:#fff;
 }
 
 .nav-collapse.collapse {

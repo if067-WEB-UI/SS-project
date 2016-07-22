@@ -5,13 +5,13 @@
                 <table>
                     <thead>
                     <tr>
-                        <th colspan="4">Предмети</th>
-                        <th class="addGroup" data-target="#addGroup" data-toggle="modal">Додати новий предмет</th>
+                        <th colspan="2">Факультети</th>
+                        <th class="addGroup" data-target="#addGroup" data-toggle="modal">Додати новий факультет</th>
                     </tr>
                     <tr>
                         <th>№ п/п</th>
-                        <th>Назва предмету</th>
-                        <th colspan="3">Управління</th>
+                        <th>Назва факультету</th>
+                        <th>Опис</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -19,44 +19,16 @@
                         <td>{{$index  + 1}}</td>
                         <td>{{::faculty.faculty_name}}</td>
                         <td>{{::faculty.faculty_description}}</td>
-                        <td>Тести</td>
-                        <td><a>Розклад</a></td>
                     </tr>
                     </tbody>
                 </table>
                 <uib-pagination
-                        total-items="subjects.totalSubjects.numberOfRecords"
-                        ng-model="subjects.currentPage"
-                        ng-change="subjects.pageChanged()"
+                        total-items="faculty.totalFaculties.numberOfRecords"
+                        ng-model="faculty.currentPage"
+                        ng-change="faculty.pageChanged()"
                         previous-text="&lsaquo;"
                         next-text="&rsaquo;">
                 </uib-pagination>
-
-                <!-- Modal -->
-                <!--<div class="modal fade" id="addGroup" role="dialog">-->
-                <!--<div class="modal-dialog">-->
-                <!---->
-                <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-                <!--<div class="modal-content">-->
-                <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <!--<span class="name-of-group col-xs-5">Реєстрація нового студента</span> -->
-                <!--</div>-->
-                <!--<div class="modal-body add-student">-->
-                <!--<div class="col-xs-12 add-student-modal-inpts-wrpr">-->
-                <!--<span class="name-of-group col-xs-5">Предмет</span> <input class="col-xs-3" type="text">-->
-                <!--</div>-->
-                <!---->
-                <!--</div>-->
-                <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Зареєструвати</button>-->
-                <!--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Згенерувати пароль</button>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!---->
-                <!--</div>-->
-                <!--</div>-->
-
 
             </div>
 

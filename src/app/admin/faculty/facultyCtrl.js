@@ -12,21 +12,30 @@
         /******** the amount of faculties*********/
         self.totalFaculties = 0;
         self.currentPage = 1;
-        self.pageChange = pageChange;
+        self.pageChanged = pageChanged;
         /*********** message to get know what the error ***********/
         self.showErrorMessage = false;
         self.message = "Loading...";
+        self.facultyPerPage = 10;
+        var firstFacultyInList = 0;
+
 
         activate();
 
         function activate() {
-            facultyFactory.getFaculties().then(fullfilled, rejected);
+            facultyFactory.getRecordsRange(self.facultyPerPage, firstFacultyInList )
+                .then(getRecordsRangeComplete, getRecordsRangeFailed);
+
             facultyFactory.countFaculties().then(success,error);
 
         }
 
-        function pageChange() {
-            facultyFactory.getRecordsRange().then(fullfilled, rejected);
+        facultyFactory.getFaculties().then(fullfilled, rejected);
+
+
+        function pageChanged() {
+            var begin = ((self.currentPage - 1) * self.facultyPerPage);
+            facultyFactory.getRecordsRange(self.facultyPerPage, begin).then(getRecordsRangeComplete);
         }
 
         function success(response) {
@@ -43,6 +52,14 @@
         function rejected(response) {
             self.showErrorMessage = true;
             self.message = "Error" + " " + response.status + " " + response.statusText;
+        }
+        function getRecordsRangeComplete(response) {
+            self.list = response.data;
+        }
+
+        function getRecordsRangeFailed(response) {
+            self.showErrorMessage = true;
+            self.message = "Error:" + " " + response.status + " " + response.statusText;
         }
     }
 })();
