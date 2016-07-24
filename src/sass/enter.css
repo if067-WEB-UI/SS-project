@@ -49,10 +49,4 @@ body {
   cursor: pointer;
   width: auto; }
 
-table.subject-list a {
-  cursor: pointer; }
-table.subject-list th:last-child,
-table.subject-list td:last-child {
-  text-align: center; }
-
 /*# sourceMappingURL=enter.css.map */

@@ -11,7 +11,8 @@
                 countSubjects: countSubjects,
                 getRecordsRange: getRecordsRange,
                 addSubject: addSubject,
-                deleteSubject: deleteSubject
+                deleteSubject: deleteSubject,
+                editSubject: editSubject
             };
 
             function getSubjects() {
@@ -32,6 +33,10 @@
             }
             function deleteSubject(subject_id) {
                 return $http.delete(appConstants.delSubject + subject_id)
+                    .then(fulfilled, rejected);
+            }
+            function editSubject(subject_id, data) {
+                return $http.post(appConstants.editSubject + subject_id, data)
                     .then(fulfilled, rejected);
             }
 

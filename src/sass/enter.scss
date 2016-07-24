@@ -64,9 +64,7 @@ table.subject-list {
 	a {
 	  cursor: pointer;
 	}
-  	th:last-child,
-	td:last-child{
+  	.subject-list-centered{
 	  text-align: center;
 	}
-
 }

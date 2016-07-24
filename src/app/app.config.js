@@ -18,17 +18,17 @@ angular.module('app')
             views: {
                 'content': {
                     templateUrl: 'app/admin/subject/subject.html',
-                    controller: 'SubjectCtrl as subjects'
+                    controller: 'SubjectController as subjects'
                 }
             }
         })
 
-        .state('admin-home.newSubject', {
+        .state('admin-home.subjectNew', {
             url: '/newSubject',
             views: {
                 'content': {
-                    templateUrl: 'app/admin/subject/subject-add.html',
-                    controller: 'SubjectCtrl as subjects'
+                    templateUrl: 'app/admin/subject/add-subject.html',
+                    controller: 'SubjectController as subjects'
                 }
             }
         })
